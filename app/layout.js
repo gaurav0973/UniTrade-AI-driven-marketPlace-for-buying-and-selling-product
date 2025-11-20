@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AppContextProvider } from "@/context/AppContext";
-import { Toaster } from "react-hot-toast";
+import ClientToaster from "@/components/ClientToaster";
 import { ClerkProvider } from "@clerk/nextjs";
 
 const geistSans = Geist({
@@ -22,12 +22,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <ClerkProvider>
-          <Toaster />
-          <AppContextProvider>
-            {children}
-          </AppContextProvider>
+          <ClientToaster />
+          <AppContextProvider>{children}</AppContextProvider>
         </ClerkProvider>
       </body>
     </html>
