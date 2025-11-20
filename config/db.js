@@ -17,7 +17,10 @@ async function connectDB() {
 
     cached.promise = mongoose
       .connect(`${process.env.MONGODB_URI}/uniTrade`, opts)
-      .then((mongoose) => mongoose);
+      .then((mongoose) => {
+        console.log("Connected to MongoDB");
+        return mongoose;
+      });
   }
 
   cached.conn = await cached.promise;
