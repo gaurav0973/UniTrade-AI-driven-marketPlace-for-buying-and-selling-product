@@ -1,6 +1,5 @@
 import Product from "@/models/Product";
 import { auth } from "@clerk/nextjs/server";
-import { accessedDynamicData } from "next/dist/server/app-render/dynamic-rendering";
 import { NextResponse } from "next/server";
 
 
@@ -40,6 +39,7 @@ export async function POST(request) {
 
         return NextResponse.json({success : true, message : "Order Placed successfully"})
     } catch (error) {
+        console.log("Error in creating order:", error)
         return NextResponse.json({success : false, message : error.message})
     }
 }
