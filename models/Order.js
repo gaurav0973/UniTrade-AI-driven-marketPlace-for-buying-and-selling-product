@@ -1,19 +1,22 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema({
-    userId : { type: String, required: true, ref : 'User' },
-    items : [
-        {
-            product : { type: String, required: true, ref : 'Product' },
-            quantity : { type: Number, required: true }
-        }
-    ],
-    amount : { type: Number, required: true },
-    address : { type: String, required: true },
-    status : { type: String, required: true, default : 'order placed' }, 
-    date : { type: Number, required : true  },
-})
+  userId: { type: String, required: true, ref: "User" },
+  items: [
+    {
+      product: { type: String, required: true, ref: "Product" },
+      quantity: { type: Number, required: true },
+    },
+  ],
+  amount: { type: Number, required: true },
+  address: { type: Object, required: true },
+  status: { type: String, required: true, default: "order placed" },
+  date: { type: Number, required: true },
+});
 
-
-const Order = mongoose.models.Order || mongoose.model("Order", orderSchema)
-export default Order
+// Force recompilation of the model to update schema
+if (mongoose.models.Order) {
+  delete mongoose.models.Order;
+}
+const Order = mongoose.model("Order", orderSchema);
+export default Order;
