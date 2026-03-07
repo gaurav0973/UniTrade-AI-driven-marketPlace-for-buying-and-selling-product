@@ -2,24 +2,24 @@
 
 @theme {
   /* Chai Theme - Warm Browns & Creams */
-  --color-chai-50: #FFF8F0;
-  --color-chai-100: #F5E6D3;
-  --color-chai-200: #EDD5BD;
-  --color-chai-300: #DFC0A0;
-  --color-chai-400: #C4956A;
-  --color-chai-500: #A0714F;
-  --color-chai-600: #8B5E3C;
-  --color-chai-700: #6D4C41;
-  --color-chai-800: #4E342E;
-  --color-chai-900: #3E2723;
+  --color-chai-50: #fff8f0;
+  --color-chai-100: #f5e6d3;
+  --color-chai-200: #edd5bd;
+  --color-chai-300: #dfc0a0;
+  --color-chai-400: #c4956a;
+  --color-chai-500: #a0714f;
+  --color-chai-600: #8b5e3c;
+  --color-chai-700: #6d4c41;
+  --color-chai-800: #4e342e;
+  --color-chai-900: #3e2723;
 
-  --color-spice: #D4763B;
-  --color-spice-light: #E8924A;
-  --color-cinnamon: #B8651A;
-  --color-cream: #FFFBF5;
-  --color-cream-dark: #FFF0E1;
-  --color-cardamom: #7B8B6F;
-  --color-cardamom-dark: #5C6B50;
+  --color-spice: #d4763b;
+  --color-spice-light: #e8924a;
+  --color-cinnamon: #b8651a;
+  --color-cream: #fffbf5;
+  --color-cream-dark: #fff0e1;
+  --color-cardamom: #7b8b6f;
+  --color-cardamom-dark: #5c6b50;
 }
 
 * {
@@ -27,8 +27,8 @@
 }
 
 body {
-  background-color: #FFFBF5;
-  color: #3E2723;
+  background-color: #fffbf5;
+  color: #3e2723;
 }
 
 @layer base {
@@ -45,8 +45,8 @@ body {
 
 /* Chai-themed selection */
 ::selection {
-  background-color: #EDD5BD;
-  color: #3E2723;
+  background-color: #edd5bd;
+  color: #3e2723;
 }
 
 /* Warm scrollbar for browsers that show it */
@@ -58,22 +58,128 @@ body {
 
 /* Chai gradient utility */
 .chai-gradient {
-  background: linear-gradient(135deg, #8B5E3C 0%, #6D4C41 50%, #4E342E 100%);
+  background: linear-gradient(135deg, #8b5e3c 0%, #6d4c41 50%, #4e342e 100%);
 }
 
 .chai-gradient-light {
-  background: linear-gradient(135deg, #FFF8F0 0%, #F5E6D3 50%, #EDD5BD 100%);
+  background: linear-gradient(135deg, #fff8f0 0%, #f5e6d3 50%, #edd5bd 100%);
 }
 
 .chai-gradient-warm {
-  background: linear-gradient(135deg, #D4763B 0%, #8B5E3C 100%);
+  background: linear-gradient(135deg, #d4763b 0%, #8b5e3c 100%);
 }
 
 /* Warm card shadow */
 .chai-shadow {
-  box-shadow: 0 4px 20px rgba(139, 94, 60, 0.08), 0 1px 4px rgba(139, 94, 60, 0.05);
+  box-shadow:
+    0 4px 20px rgba(139, 94, 60, 0.08),
+    0 1px 4px rgba(139, 94, 60, 0.05);
 }
 
 .chai-shadow-lg {
-  box-shadow: 0 10px 40px rgba(139, 94, 60, 0.12), 0 2px 8px rgba(139, 94, 60, 0.06);
+  box-shadow:
+    0 10px 40px rgba(139, 94, 60, 0.12),
+    0 2px 8px rgba(139, 94, 60, 0.06);
+}
+
+/* Order placed page animations */
+@keyframes float-money {
+  0% {
+    transform: translateX(-60px) translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(calc(100vw + 60px)) translateY(-30px) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confetti {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--confetti-x), var(--confetti-y)) scale(0)
+      rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes draw-check {
+  0% {
+    stroke-dasharray: 30;
+    stroke-dashoffset: 30;
+  }
+  100% {
+    stroke-dasharray: 30;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes progress-bar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-float-money {
+  animation: float-money linear infinite;
+}
+
+.animate-confetti {
+  animation: confetti 1s ease-out forwards;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s ease-out forwards;
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2s ease-out infinite;
+}
+
+.animate-draw-check {
+  animation: draw-check 0.8s ease-out 0.3s forwards;
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+}
+
+.animate-progress-bar {
+  animation: progress-bar 4.5s ease-in-out forwards;
 }
