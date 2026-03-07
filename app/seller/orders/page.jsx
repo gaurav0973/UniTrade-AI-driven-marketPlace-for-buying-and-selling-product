@@ -45,12 +45,12 @@ const Orders = () => {
         <Loading />
       ) : (
         <div className="md:p-10 p-4 space-y-5">
-          <h2 className="text-lg font-medium">Orders</h2>
-          <div className="max-w-4xl rounded-md">
+          <h2 className="text-lg font-medium text-chai-900">Orders</h2>
+          <div className="max-w-4xl rounded-2xl overflow-hidden border border-chai-200">
             {orders.map((order, index) => (
               <div
                 key={index}
-                className="flex flex-col md:flex-row gap-5 justify-between p-5 border-t border-gray-300"
+                className="flex flex-col md:flex-row gap-5 justify-between p-5 border-t border-chai-200 hover:bg-chai-50/50 transition"
               >
                 <div className="flex-1 flex gap-5 max-w-80">
                   <Image
@@ -59,7 +59,7 @@ const Orders = () => {
                     alt="box_icon"
                   />
                   <p className="flex flex-col gap-3">
-                    <span className="font-medium">
+                    <span className="font-medium text-chai-800">
                       {order.items
                         .map((item) =>
                           item.product
@@ -68,12 +68,12 @@ const Orders = () => {
                         )
                         .join(", ")}
                     </span>
-                    <span>Items : {order.items.length}</span>
+                    <span className="text-chai-500">Items : {order.items.length}</span>
                   </p>
                 </div>
                 <div>
-                  <p>
-                    <span className="font-medium">
+                  <p className="text-chai-600">
+                    <span className="font-medium text-chai-800">
                       {order.address.fullName}
                     </span>
                     <br />
@@ -84,17 +84,17 @@ const Orders = () => {
                     <span>{order.address.phoneNumber}</span>
                   </p>
                 </div>
-                <p className="font-medium my-auto">
+                <p className="font-medium my-auto text-chai-800">
                   {currency}
                   {order.amount}
                 </p>
                 <div>
-                  <p className="flex flex-col">
+                  <p className="flex flex-col text-chai-600">
                     <span>Method : COD</span>
                     <span>
                       Date : {new Date(order.date).toLocaleDateString()}
                     </span>
-                    <span>Payment : Pending</span>
+                    <span className="text-spice font-medium">Payment : Pending</span>
                   </p>
                 </div>
               </div>

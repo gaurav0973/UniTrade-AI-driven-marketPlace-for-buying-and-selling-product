@@ -60,7 +60,7 @@ const AddProduct = () => {
     <div className="flex-1 min-h-screen flex flex-col justify-between">
       <form onSubmit={handleSubmit} className="md:p-10 p-4 space-y-5 max-w-lg">
         <div>
-          <p className="text-base font-medium">Product Image</p>
+          <p className="text-base font-medium text-chai-800">Product Image</p>
           <div className="flex flex-wrap items-center gap-3 mt-2">
 
             {[...Array(4)].map((_, index) => (
@@ -72,7 +72,7 @@ const AddProduct = () => {
                 }} type="file" id={`image${index}`} hidden />
                 <Image
                   key={index}
-                  className="max-w-24 cursor-pointer"
+                  className="max-w-24 cursor-pointer rounded-xl border border-chai-200 hover:border-chai-400 transition"
                   src={files[index] ? URL.createObjectURL(files[index]) : assets.upload_area}
                   alt=""
                   width={100}
@@ -84,14 +84,14 @@ const AddProduct = () => {
           </div>
         </div>
         <div className="flex flex-col gap-1 max-w-md">
-          <label className="text-base font-medium" htmlFor="product-name">
+          <label className="text-base font-medium text-chai-800" htmlFor="product-name">
             Product Name
           </label>
           <input
             id="product-name"
             type="text"
             placeholder="Type here"
-            className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+            className="outline-none md:py-2.5 py-2 px-3 rounded-xl border border-chai-300 focus:border-chai-500 text-chai-700 bg-white placeholder:text-chai-400 transition"
             onChange={(e) => setName(e.target.value)}
             value={name}
             required
@@ -99,7 +99,7 @@ const AddProduct = () => {
         </div>
         <div className="flex flex-col gap-1 max-w-md">
           <label
-            className="text-base font-medium"
+            className="text-base font-medium text-chai-800"
             htmlFor="product-description"
           >
             Product Description
@@ -107,7 +107,7 @@ const AddProduct = () => {
           <textarea
             id="product-description"
             rows={4}
-            className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40 resize-none"
+            className="outline-none md:py-2.5 py-2 px-3 rounded-xl border border-chai-300 focus:border-chai-500 resize-none text-chai-700 bg-white placeholder:text-chai-400 transition"
             placeholder="Type here"
             onChange={(e) => setDescription(e.target.value)}
             value={description}
@@ -116,12 +116,12 @@ const AddProduct = () => {
         </div>
         <div className="flex items-center gap-5 flex-wrap">
           <div className="flex flex-col gap-1 w-32">
-            <label className="text-base font-medium" htmlFor="category">
+            <label className="text-base font-medium text-chai-800" htmlFor="category">
               Category
             </label>
             <select
               id="category"
-              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+              className="outline-none md:py-2.5 py-2 px-3 rounded-xl border border-chai-300 focus:border-chai-500 text-chai-700 bg-white transition"
               onChange={(e) => setCategory(e.target.value)}
               defaultValue={category}
             >
@@ -135,35 +135,35 @@ const AddProduct = () => {
             </select>
           </div>
           <div className="flex flex-col gap-1 w-32">
-            <label className="text-base font-medium" htmlFor="product-price">
+            <label className="text-base font-medium text-chai-800" htmlFor="product-price">
               Product Price
             </label>
             <input
               id="product-price"
               type="number"
               placeholder="0"
-              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+              className="outline-none md:py-2.5 py-2 px-3 rounded-xl border border-chai-300 focus:border-chai-500 text-chai-700 bg-white placeholder:text-chai-400 transition"
               onChange={(e) => setPrice(e.target.value)}
               value={price}
               required
             />
           </div>
           <div className="flex flex-col gap-1 w-32">
-            <label className="text-base font-medium" htmlFor="offer-price">
+            <label className="text-base font-medium text-chai-800" htmlFor="offer-price">
               Offer Price
             </label>
             <input
               id="offer-price"
               type="number"
               placeholder="0"
-              className="outline-none md:py-2.5 py-2 px-3 rounded border border-gray-500/40"
+              className="outline-none md:py-2.5 py-2 px-3 rounded-xl border border-chai-300 focus:border-chai-500 text-chai-700 bg-white placeholder:text-chai-400 transition"
               onChange={(e) => setOfferPrice(e.target.value)}
               value={offerPrice}
               required
             />
           </div>
         </div>
-        <button type="submit" className="px-8 py-2.5 bg-orange-600 text-white font-medium rounded">
+        <button type="submit" className="px-8 py-2.5 chai-gradient-warm text-white font-medium rounded-xl hover:opacity-90 transition">
           ADD
         </button>
       </form>

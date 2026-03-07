@@ -5,7 +5,7 @@ import React from 'react'
 
 const Layout = ({ children }) => {
   return (
-    <div>
+    <div className="bg-cream min-h-screen">
       <Navbar />
       <div className='flex w-full'>
         <Sidebar />

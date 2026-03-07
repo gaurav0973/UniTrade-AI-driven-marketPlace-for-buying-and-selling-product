@@ -8,9 +8,9 @@ const Navbar = () => {
   const { router } = useAppContext()
 
   return (
-    <div className='flex items-center px-4 md:px-8 py-3 justify-between border-b'>
+    <div className='flex items-center px-4 md:px-8 py-3 justify-between border-b border-chai-200 bg-cream/80 backdrop-blur-md'>
       <Image onClick={()=>router.push('/')} className='w-28 lg:w-32 cursor-pointer' src={assets.logo} alt="" />
-      <button className='bg-gray-600 text-white px-5 py-2 sm:px-7 sm:py-2 rounded-full text-xs sm:text-sm'>Logout</button>
+      <button className='chai-gradient text-white px-5 py-2 sm:px-7 sm:py-2 rounded-full text-xs sm:text-sm hover:opacity-90 transition font-medium'>Logout</button>
     </div>
   )
 }

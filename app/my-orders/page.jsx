@@ -49,10 +49,10 @@ const MyOrders = () => {
             <Navbar />
             <div className="flex flex-col justify-between px-6 md:px-16 lg:px-32 py-6 min-h-screen">
                 <div className="space-y-5">
-                    <h2 className="text-lg font-medium mt-6">My Orders</h2>
-                    {loading ? <Loading /> : (<div className="max-w-5xl border-t border-gray-300 text-sm">
+                    <h2 className="text-lg font-medium mt-6 text-chai-900">My Orders</h2>
+                    {loading ? <Loading /> : (<div className="max-w-5xl border-t border-chai-200 text-sm">
                         {orders.map((order, index) => (
-                            <div key={index} className="flex flex-col md:flex-row gap-5 justify-between p-5 border-b border-gray-300">
+                            <div key={index} className="flex flex-col md:flex-row gap-5 justify-between p-5 border-b border-chai-200 hover:bg-chai-50/50 transition rounded-lg">
                                 <div className="flex-1 flex gap-5 max-w-80">
                                     <Image
                                         className="max-w-16 max-h-16 object-cover"
@@ -60,15 +60,15 @@ const MyOrders = () => {
                                         alt="box_icon"
                                     />
                                     <p className="flex flex-col gap-3">
-                                        <span className="font-medium text-base">
+                                        <span className="font-medium text-base text-chai-800">
                                             {order.items.map((item) => item.product.name + ` x ${item.quantity}`).join(", ")}
                                         </span>
-                                        <span>Items : {order.items.length}</span>
+                                        <span className="text-chai-500">Items : {order.items.length}</span>
                                     </p>
                                 </div>
                                 <div>
-                                    <p>
-                                        <span className="font-medium">{order.address.fullName}</span>
+                                    <p className="text-chai-600">
+                                        <span className="font-medium text-chai-800">{order.address.fullName}</span>
                                         <br />
                                         <span >{order.address.area}</span>
                                         <br />
@@ -77,12 +77,12 @@ const MyOrders = () => {
                                         <span>{order.address.phoneNumber}</span>
                                     </p>
                                 </div>
-                                <p className="font-medium my-auto">{currency}{order.amount}</p>
+                                <p className="font-medium my-auto text-chai-800">{currency}{order.amount}</p>
                                 <div>
-                                    <p className="flex flex-col">
+                                    <p className="flex flex-col text-chai-600">
                                         <span>Method : COD</span>
                                         <span>Date : {new Date(order.date).toLocaleDateString()}</span>
-                                        <span>Payment : Pending</span>
+                                        <span className="text-spice font-medium">Payment : Pending</span>
                                     </p>
                                 </div>
                             </div>

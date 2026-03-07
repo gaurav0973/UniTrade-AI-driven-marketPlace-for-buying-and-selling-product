@@ -1,30 +1,25 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { AppContextProvider } from "@/context/AppContext";
 import ClientToaster from "@/components/ClientToaster";
 import { ClerkProvider } from "@clerk/nextjs";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata = {
-  title: "Unique E-Commerce",
-  description: "E-Commerce with Next.js ",
+  title: "UniTrade — Your Chai-Themed Marketplace",
+  description: "A warm, inviting marketplace powered by Next.js",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${outfit.variable} font-[family-name:var(--font-outfit)] antialiased bg-cream text-chai-900`}
       >
         <ClerkProvider>
           <ClientToaster />
