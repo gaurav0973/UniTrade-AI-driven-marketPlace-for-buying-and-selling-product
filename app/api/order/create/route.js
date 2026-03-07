@@ -1,7 +1,7 @@
-import { inngest } from "@/config/inngest";
 import Product from "@/models/Product";
 import User from "@/models/User";
 import Address from "@/models/Address";
+import Order from "@/models/Order";
 import connectDB from "@/config/db";
 import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
@@ -34,15 +34,12 @@ export async function POST(request) {
       }
     }
 
-    await inngest.send({
-      name: "order/created",
-      data: {
-        userId,
-        address,
-        items,
-        amount: amount + Math.floor(amount * 0.02), // 2% Tax
-        date: Date.now(),
-      },
+    await Order.create({
+      userId,
+      address,
+      items,
+      amount: amount + Math.floor(amount * 0.02), // 2% Tax
+      date: Date.now(),
     });
 
     // Clear user cart
